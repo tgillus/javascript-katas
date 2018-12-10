@@ -7,7 +7,7 @@
     "watch": "jest --no-cache --watch ./test/*",
     "cov": "jest --no-cache --coverage",
     "lint": "eslint ./src/**/*.js ./test/**/*.js",
-    "lint-test": "eslint ./src/**/*.js && npm run cov"
+    "lint-test": "npm run lint && npm run cov"
   },
   "pre-commit": [
     "lint-test"
