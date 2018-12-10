@@ -1,0 +1,23 @@
+{
+  "name": "javascript-katas",
+  "version": "1.0.0",
+  "description": "JavaScript coding practice.",
+  "scripts": {
+    "test": "jest --no-cache ./test/*",
+    "watch": "jest --no-cache --watch ./test/*",
+    "cov": "jest --no-cache --coverage",
+    "lint": "eslint ./src/**/*.js",
+    "lint-test": "eslint ./src/**/*.js && jest --no-cache"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": ["src/**"],
+    "coverageDirectory": "./coverage"
+  },
+  "author": "Tramaine L. Gillus",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "jest": "^23.6.0"
+  }
+}
