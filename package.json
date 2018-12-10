@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "JavaScript coding practice.",
   "scripts": {
-    "test": "jest --no-cache ./test/*",
-    "watch": "jest --no-cache --watch ./test/*",
-    "cov": "jest --no-cache --coverage",
+    "test": "jest",
+    "watch": "jest --watch",
+    "cov": "jest --coverage",
     "lint": "eslint ./src/**/*.js ./test/**/*.js",
     "lint-test": "npm run lint && npm run cov"
   },
@@ -14,9 +14,7 @@
   ],
   "jest": {
     "verbose": true,
-    "collectCoverageFrom": [
-      "src/**"
-    ],
+    "collectCoverageFrom": ["src/**/*.js"],
     "coverageDirectory": "./coverage"
   },
   "author": "Tramaine L. Gillus",
