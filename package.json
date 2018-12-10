@@ -9,15 +9,21 @@
     "lint": "eslint ./src/**/*.js",
     "lint-test": "eslint ./src/**/*.js && jest --no-cache"
   },
+  "pre-commit": [
+    "lint-test"
+  ],
   "jest": {
     "verbose": true,
-    "collectCoverageFrom": ["src/**"],
+    "collectCoverageFrom": [
+      "src/**"
+    ],
     "coverageDirectory": "./coverage"
   },
   "author": "Tramaine L. Gillus",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^5.10.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2"
   }
 }
