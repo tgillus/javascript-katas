@@ -10,7 +10,14 @@
   },
   "rules": {
     "indent": ["error", 2],
-    "quotes": ["error", "single"],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],
     "no-console": 0
