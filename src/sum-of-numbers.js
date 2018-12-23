@@ -10,7 +10,7 @@ const addNumbers = (smallerNumber, largerNumber) => {
     return smallerNumber;
   }
 
-  return smallerNumber + addNumbers(++smallerNumber, largerNumber);
+  return smallerNumber + addNumbers(smallerNumber + 1, largerNumber);
 };
 
 module.exports = { getSum };
