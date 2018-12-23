@@ -3,7 +3,7 @@ const factorial = number => {
     return 1;
   }
  
-  return number * factorial(--number);
+  return number * factorial(number - 1);
 };
 
 module.exports = { factorial };
