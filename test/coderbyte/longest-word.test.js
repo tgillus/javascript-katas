@@ -5,7 +5,7 @@
 // are the same length, return the first word from the string with that length.
 // Ignore punctuation and assume sen will not be empty. 
 
-const { longestWord } = require('../src/longest-word');
+const { longestWord } = require('../../src/coderbyte/longest-word');
 
 describe('longestWord', () => {
   it("should return 'love' for the string 'I love dogs'", () => {

@@ -6,7 +6,7 @@
 
 // Note: a and b are not ordered!
 
-const { getSum } = require('../src/sum-of-numbers');
+const { getSum } = require('../../src/codewars/sum-of-numbers');
 
 describe('getSum', () => {
   it('should return 1 when given 1 and 0', () => {

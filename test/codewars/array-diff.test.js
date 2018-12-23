@@ -5,7 +5,7 @@
 
 // It should remove all values from list a, which are present in list b.
 
-const { arrayDiff } = require('../src/array-diff');
+const { arrayDiff } = require('../../src/codewars/array-diff');
 
 describe('arrayDiff', () => {
   it('should return [1] when given [1, 2] and [2]', () => {

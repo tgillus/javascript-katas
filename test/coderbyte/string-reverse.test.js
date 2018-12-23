@@ -5,7 +5,7 @@
 // "Hello World and Coders" then your program should return the string
 // "sredoC dna dlroW olleH".
 
-const { reverseString } = require('../src/string-reverse');
+const { reverseString } = require('../../src/coderbyte/string-reverse');
 
 describe('reverseString', () => {
   it("returns 'halb' for 'blah'", () => {

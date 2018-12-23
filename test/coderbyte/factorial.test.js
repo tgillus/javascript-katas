@@ -5,7 +5,7 @@
 // should return (4 * 3 * 2 * 1) = 24. For the test cases, the range will be
 // between 1 and 18 and the input will always be an integer. 
 
-const { factorial } = require('../src/factorial');
+const { factorial } = require('../../src/coderbyte/factorial');
 
 describe('factorial', () => {
   it('returns 24 as the factorial of 4', () => {

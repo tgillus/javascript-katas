@@ -7,7 +7,7 @@
 // Example: The binary representation of 1234 is 10011010010, so the function
 // should return 5 in this case
 
-const { countOneBits } = require('../src/bit-counting');
+const { countOneBits } = require('../../src/codewars/bit-counting');
 
 describe('countOneBits', () => {
   it('should return 0 for the number of bits in the number 0', () => {
