@@ -1,24 +1,16 @@
 const getSum = (number1, number2) => {
-  const [smallerNumber, largerNumber] = findLargerAndSmallerNumber(number1, number2);
-  const numbersToAdd = generateNumbersToAdd(smallerNumber, largerNumber);
+  const smallerNumber = Math.min(number1, number2);
+  const largerNumber = Math.max(number1, number2);
 
-  return numbersToAdd.reduce(addNumbers);
+  return addNumbers(smallerNumber, largerNumber);
 };
 
-const findLargerAndSmallerNumber = (number1, number2) => {
-  return number1 < number2 ? [number1, number2] : [number2, number1];
-};
-
-const generateNumbersToAdd = (smallerNumber, largerNumber) => {
-  const numbers = [];
-
-  for (let i = smallerNumber; i <= largerNumber; i++) {
-    numbers.push(i);
+const addNumbers = (smallerNumber, largerNumber) => {
+  if (smallerNumber === largerNumber) {
+    return smallerNumber;
   }
 
-  return numbers;
+  return smallerNumber + addNumbers(++smallerNumber, largerNumber);
 };
-
-const addNumbers = (number1, number2) => number1 + number2;
 
 module.exports = { getSum };
