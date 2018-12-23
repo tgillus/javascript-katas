@@ -35,4 +35,18 @@ describe('longestWord', () => {
 
     expect(longestWord(sentence)).toBe(expected);
   });
+
+  it("should return 'high9' for the sentence 'Give me a high9 five.'", () => {
+    const sentence = 'Give me a high9 five.';
+    const expected = 'high9';
+
+    expect(longestWord(sentence)).toBe(expected);
+  });
+
+  it("should return 'coderbyte' for the sentence 'the $$$longest# word is coderbyte'", () => {
+    const sentence = 'the $$$longest# word is coderbyte';
+    const expected = 'coderbyte';
+
+    expect(longestWord(sentence)).toBe(expected);
+  });
 });
