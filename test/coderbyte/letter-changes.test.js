@@ -29,4 +29,11 @@ describe('letterChanges', () => {
 
     expect(result).toBe(expected);
   });
+
+  it("should return 'abcd' when given 'zabc'", () => {
+    const result = letterChanges('zabc');
+    const expected = 'Abcd';
+
+    expect(result).toBe(expected);
+  });
 });
