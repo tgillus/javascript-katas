@@ -14,7 +14,9 @@
   ],
   "jest": {
     "verbose": true,
-    "collectCoverageFrom": ["src/**/*.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coverageDirectory": "./coverage"
   },
   "author": "Tramaine L. Gillus",
