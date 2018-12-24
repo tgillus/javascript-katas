@@ -1,5 +1,5 @@
 class Greeter {
-  static greeting(subject) {
+  static greet(subject) {
     if (typeof subject !== 'string' || !subject.trim()) {
       throw 'Subject of greeting is required and must be a string.';
     }
