@@ -5,6 +5,6 @@ const longestWord = sentence => {
 };
 
 const wordsWithoutPunctuation = sentence => sentence.match(/[a-z0-9]+/gi);
-const sortWordsLongestToShortest = words => words.sort((word1, word2) => word1.length < word2.length);
+const sortWordsLongestToShortest = words => words.sort((word1, word2) => word2.length - word1.length);
 
 module.exports = { longestWord };
