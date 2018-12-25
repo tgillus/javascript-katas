@@ -1,5 +1,6 @@
 {
   "javascript.suggestionActions.enabled": false,
   "eslint.enable": true,
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "prettier.singleQuote": true
 }
