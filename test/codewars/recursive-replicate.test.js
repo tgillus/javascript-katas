@@ -15,7 +15,7 @@ describe('replicate', () => {
     expect(replicate(8, 0)).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
   });
 
-  it('returns an empty array if times zero', () => {
+  it('returns an empty array if times is zero', () => {
     expect(replicate(0, 12)).toEqual([]);
   });
 
