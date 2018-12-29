@@ -12,7 +12,7 @@ const projectAccumulatedFields = (projection, fieldProjection) => {
     return projection[nestedFields.slice(0, index + 1).join('.')];
   });
 
-  return Object.assign({}, projection, reject ? {} : { [field]: 1 });
+  return Object.assign({}, projection, reject ? {} : fieldProjection);
 };
 
 const getNestedFields = field => {
