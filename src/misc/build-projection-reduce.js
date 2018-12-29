@@ -1,10 +1,8 @@
-class ProjectionBuilder {
-  static projection(fields) {
-    return fields.sort().reduce(buildProjection, {});
-  }
-}
+const buildProjection = fields => {
+  return fields.sort().reduce(projection, {});
+};
 
-const buildProjection = (projection, field) => {
+const projection = (projection, field) => {
   const rejectField = getNestedFields(field).find((nestedField, index, nestedFields) => {
     return projection[nestedFields.slice(0, index + 1).join('.')];
   });
@@ -18,4 +16,4 @@ const getNestedFields = field => {
   return nestedFields.length === 1 ? [] : nestedFields;
 };
 
-module.exports = { ProjectionBuilder };
+module.exports = { buildProjection };
