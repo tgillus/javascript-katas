@@ -13,9 +13,9 @@ const buildProjection = fields => {
 };
 
 const getNestedFields = field => {
-  const splitFields = field.split('.');
+  const nestedFields = field.split('.');
 
-  return splitFields.length === 1 ? [] : splitFields;
+  return nestedFields.length === 1 ? [] : nestedFields;
 };
 
 

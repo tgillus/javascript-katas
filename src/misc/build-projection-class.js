@@ -9,13 +9,13 @@ const buildProjection = (projection, field) => {
     return projection[nestedFields.slice(0, index + 1).join('.')];
   });
 
-  return Object.assign(projection, rejectField ? {} : { [field]: 1 });
+  return Object.assign({}, projection, rejectField ? {} : { [field]: 1 });
 };
 
 const getNestedFields = field => {
-  const splitFields = field.split('.');
+  const nestedFields = field.split('.');
 
-  return splitFields.length === 1 ? [] : splitFields;
+  return nestedFields.length === 1 ? [] : nestedFields;
 };
 
 module.exports = { ProjectionBuilder };

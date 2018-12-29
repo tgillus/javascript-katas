@@ -5,10 +5,8 @@ const buildProjection = fields => {
     const nestedFields = field.split('.');
     let rejectField = false;
 
-    while (nestedFields.length > 1) {
-      nestedFields.pop();
-
-      if (projection[nestedFields.join('.')]) {
+    for (let index = 0; index < nestedFields.length; index++) {
+      if (projection[nestedFields.slice(0, index + 1).join('.')]) {
         rejectField = true;
         break;
       }
