@@ -10,7 +10,7 @@ const buildProjection = fields => {
 
       const reconstructedPortionOfField = reconstruct(nestedFields);
 
-      if (projectionContainsField(projection, reconstructedPortionOfField)) {
+      if (fieldIsInProjection(projection, reconstructedPortionOfField)) {
         rejectField = true;
         break;
       }
@@ -22,18 +22,10 @@ const buildProjection = fields => {
   return projection;
 };
 
-const deconstruct = field => {
-  const nestedFields = field.split('.');
+const deconstruct = field => field.split('.');
 
-  return nestedFields.length === 1 ? [] : nestedFields;
-};
+const reconstruct = (nestedFields) => nestedFields.join('.');
 
-const reconstruct = (nestedFields) => {
-  return nestedFields.join('.');
-};
-
-const projectionContainsField = (projection, field) => {
-  return projection[field];
-};
+const fieldIsInProjection = (projection, field) => projection[field];
 
 module.exports = { buildProjection };
