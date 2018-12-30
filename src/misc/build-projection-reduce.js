@@ -3,17 +3,27 @@ const buildProjection = fields => {
 };
 
 const projection = (projection, field) => {
-  const rejectField = getNestedFields(field).find((nestedField, index, nestedFields) => {
-    return projection[nestedFields.slice(0, index + 1).join('.')];
+  const rejectField = decontruct(field).find((nestedField, index, nestedFields) => {
+    const reconstructedPortionOfField = reconstructPortion(nestedFields, index + 1);
+
+    return projectionContainsField(projection, reconstructedPortionOfField);
   });
 
   return rejectField ? projection : Object.assign({}, projection, { [field]: 1 });
 };
 
-const getNestedFields = field => {
+const decontruct = field => {
   const nestedFields = field.split('.');
 
   return nestedFields.length === 1 ? [] : nestedFields;
+};
+
+const reconstructPortion = (nestedFields, end) => {
+  return nestedFields.slice(0, end).join('.');
+};
+
+const projectionContainsField = (projection, field) => {
+  return projection[field];
 };
 
 module.exports = { buildProjection };

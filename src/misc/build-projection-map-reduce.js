@@ -8,17 +8,27 @@ const projectField = field => {
 
 const projectAccumulatedFields = (projection, fieldProjection) => {
   const field = Object.keys(fieldProjection)[0];
-  const rejectField = getNestedFields(field).find((nestedField, index, nestedFields) => {
-    return projection[nestedFields.slice(0, index + 1).join('.')];
+  const rejectField = deconstruct(field).find((nestedField, index, nestedFields) => {
+    const reconstructedPortionOfField = reconstructPortion(nestedFields, index + 1);
+
+    return projectionContainsField(projection, reconstructedPortionOfField);
   });
 
   return rejectField ? projection : Object.assign({}, projection, fieldProjection);
 };
 
-const getNestedFields = field => {
+const deconstruct = field => {
   const nestedFields = field.split('.');
 
   return nestedFields.length === 1 ? [] : nestedFields;
+};
+
+const reconstructPortion = (nestedFields, end) => {
+  return nestedFields.slice(0, end).join('.');
+};
+
+const projectionContainsField = (projection, field) => {
+  return projection[field];
 };
 
 module.exports = { buildProjection };
