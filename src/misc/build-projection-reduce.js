@@ -7,7 +7,7 @@ const projection = (projection, field) => {
     return projection[nestedFields.slice(0, index + 1).join('.')];
   });
 
-  return Object.assign({}, projection, rejectField ? {} : { [field]: 1 });
+  return rejectField ? projection : Object.assign({}, projection, { [field]: 1 });
 };
 
 const getNestedFields = field => {

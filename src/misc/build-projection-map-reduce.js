@@ -8,11 +8,11 @@ const projectField = field => {
 
 const projectAccumulatedFields = (projection, fieldProjection) => {
   const field = Object.keys(fieldProjection)[0];
-  const reject = getNestedFields(field).find((nestedField, index, nestedFields) => {
+  const rejectField = getNestedFields(field).find((nestedField, index, nestedFields) => {
     return projection[nestedFields.slice(0, index + 1).join('.')];
   });
 
-  return Object.assign({}, projection, reject ? {} : fieldProjection);
+  return rejectField ? projection : Object.assign({}, projection, fieldProjection);
 };
 
 const getNestedFields = field => {
