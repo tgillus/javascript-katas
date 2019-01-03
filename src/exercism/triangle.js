@@ -26,7 +26,6 @@ const noSides = sides => sides.some(side => side === 0);
 const hasNegativeSide = sides => sides.some(side => side < 0);
 const violatesInquality = ([side1, side2, side3]) => {
   if (side1 + side2 < side3) return true;
-  if (side1 + side3 < side2) return true;
   if (side2 + side3 < side1) return true;
   return false;
 };
