@@ -1,10 +1,11 @@
 const toRna = dna => {
-  if (!dna) return dna;
+  if (isEmpty(dna)) return dna;
   if (isInvalid(dna)) throw new Error('Invalid input DNA.');
 
   return dna.replace(/C|G|A|T/g, transribe);
 };
 
+const isEmpty = dna => !dna;
 const isInvalid = dna => !!dna.match(/[^CGAT]/);
 
 const transribe = nucleotide => {
