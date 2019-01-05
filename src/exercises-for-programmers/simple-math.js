@@ -1,5 +1,5 @@
 const simpleMath = (operand1, operand2) => {
-  if (invalidOrNegative(operand1, operand2)) {
+  if (invalid(operand1, operand2)) {
     throw new Error('Positive operands are required.');
   }
 
@@ -8,7 +8,7 @@ const simpleMath = (operand1, operand2) => {
   return solve(number1, number2);
 };
 
-const invalidOrNegative = (...operands) => {
+const invalid = (...operands) => {
   return operands.some(operand => /[^0-9]/.test(operand));
 };
 
