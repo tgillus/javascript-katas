@@ -13,9 +13,6 @@
 //   Input:"f++d+"
 //   Output:"false"
 
-// '-s=+++++-g'.match(/(?<!\+)[a-z](?!\+)/g)
-// '-s=+++++-g'.match(/(?!\+)[a-z](?!\+)/g)
-
 const { simpleSymbols } = require('../../src/coderbyte/simple-symbols');
 
 describe('simpleSymbols', () => {
