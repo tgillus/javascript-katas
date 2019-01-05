@@ -20,7 +20,7 @@ describe('simpleSymbols', () => {
     expect(simpleSymbols('++d+===+c++=+a+')).toBe(true);
   });
 
-  it('returns false when two letters are a plus in between them and a plus to the other side', () => {
+  it('returns true when two letters have a plus in between them and a plus to the other side', () => {
     expect(simpleSymbols('===++f+d+==')).toBe(true);
   });
 
@@ -42,6 +42,10 @@ describe('simpleSymbols', () => {
 
   it('returns false when second letter does not have a plus on its right', () => {
     expect(simpleSymbols('+f+==+d===')).toBe(false);
+  });
+
+  it('returns false when first letter does not have plus on either side', () => {
+    expect(simpleSymbols('==+f+===d===')).toBe(false);
   });
 
   it('returns false when no letters have a plus on either side', () => {
