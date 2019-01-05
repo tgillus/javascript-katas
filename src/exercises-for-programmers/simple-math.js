@@ -17,14 +17,12 @@ const convertToIntegers = (...operands) => {
 };
 
 const solve = (number1, number2) => {
-  const output = [];
+  let answer = `${number1} + ${number2} = ${number1 + number2}\n`;
+  answer += `${number1} - ${number2} = ${number1 - number2}\n`;
+  answer += `${number1} * ${number2} = ${number1 * number2}\n`;
+  answer += `${number1} / ${number2} = ${number1 / number2}`;
 
-  output.push(`${number1} + ${number2} = ${number1 + number2}`);
-  output.push(`${number1} - ${number2} = ${number1 - number2}`);
-  output.push(`${number1} * ${number2} = ${number1 * number2}`);
-  output.push(`${number1} / ${number2} = ${number1 / number2}`);
-
-  return output.join('\n');
+  return answer;
 };
 
 module.exports = { simpleMath };
