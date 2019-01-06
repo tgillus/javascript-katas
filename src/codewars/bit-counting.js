@@ -9,7 +9,7 @@
 
 const countOneBits = number => {
   if (isPositiveNumber(number)) {
-    throw 'Argument must be positive number.';
+    throw new Error('Argument must be positive number.');
   }
 
   const binaryNumber = convertToBinary(number);
