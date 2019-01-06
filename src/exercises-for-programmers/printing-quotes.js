@@ -3,7 +3,7 @@ class QuotePrinter {
     const errors = checkForInvalidArgs({ quote, author });
 
     if (errors.length > 0) {
-      throw errors.join(' ');
+      throw new Error(errors.join(' '));
     }
 
     this.quote = quote;
