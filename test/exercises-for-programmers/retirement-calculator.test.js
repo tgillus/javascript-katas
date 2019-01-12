@@ -4,8 +4,8 @@ describe('calculateRetirement', () => {
   it('calculates the retirement year based on current age', () => {
     const currentAge = 25;
     const retirementAge = 65;
-    const currentYear = new Date().getFullYear();
     const yearsToRetirement = retirementAge - currentAge;
+    const currentYear = new Date().getFullYear();
     const retirementYear = currentYear + yearsToRetirement;
     const expected = `You have ${yearsToRetirement} year(s) to retire.\nIt's ${currentYear}, so you can retire in ${retirementYear}`;
 
