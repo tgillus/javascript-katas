@@ -9,6 +9,7 @@
     "ecmaVersion": 2017
   },
   "rules": {
+    "no-console": 0,
     "indent": ["error", 2],
     "quotes": [
       "error",
@@ -20,6 +21,6 @@
     ],
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],
-    "no-console": 0
+    "eol-last": ["error", "always"]
   }
 }
