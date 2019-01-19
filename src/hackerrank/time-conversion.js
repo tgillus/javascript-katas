@@ -1,4 +1,4 @@
-const timeConversion = time => {
+const timeConversion = (time) => {
   const timeRegex = /(\d{2}):(\d{2}):(\d{2})([AP]M)/;
 
   return time.replace(timeRegex, convertToMilitaryTime);
