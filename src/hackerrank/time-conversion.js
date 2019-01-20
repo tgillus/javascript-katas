@@ -1,14 +1,14 @@
-const timeConversion = (time) => {
-  const timeRegex = /(\d{2}):(\d{2}):(\d{2})([AP]M)/;
+const timeConversion = (standardTime) => {
+  const standardTimeRegex = /(\d{2}):(\d{2}):(\d{2})([AP]M)/;
 
-  return time.replace(timeRegex, convertToMilitaryTime);
+  return standardTime.replace(standardTimeRegex, militaryTime);
 };
 
-const convertToMilitaryTime = (match, hour, minute, second, period) => {
-  return `${convertHour(hour, period)}:${minute}:${second}`;
+const militaryTime = (match, hour, minute, second, period) => {
+  return `${militaryHour(hour, period)}:${minute}:${second}`;
 };
 
-const convertHour = (hour, period) => {
+const militaryHour = (hour, period) => {
   const isMorning = period === 'AM';
   const isMidnight = hour === '12' && isMorning;
   const isNoon = hour === '12' && !isMorning;
