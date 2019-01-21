@@ -7,27 +7,27 @@
 const { timeConversion } = require('../../src/hackerrank/time-conversion');
 
 describe('timeConversion', () => {
-  it('converts 07:05:45PM to military time', () => {
+  it('converts a standard PM time to military time', () => {
     expect(timeConversion('07:05:45PM')).toEqual('19:05:45');
   });
 
-  it('converts 09:10:20AM to military time', () => {
+  it('converts a standard AM time to military time', () => {
     expect(timeConversion('09:10:20AM')).toEqual('09:10:20');
   });
 
-  it('converts 12:00:00AM to military time', () => {
+  it('converts midnight to military time', () => {
     expect(timeConversion('12:00:00AM')).toEqual('00:00:00');
   });
 
-  it('converts 12:10:25AM to military time', () => {
+  it('converts a standard time during the midnight hour to military time', () => {
     expect(timeConversion('12:10:25AM')).toEqual('00:10:25');
   });
 
-  it('converts 12:00:00PM to military time', () => {
+  it('converts noon to military time', () => {
     expect(timeConversion('12:00:00PM')).toEqual('12:00:00');
   });
 
-  it('converts 12:35:00PM to military time', () => {
+  it('converts a standard time during the noon hour to military time', () => {
     expect(timeConversion('12:25:00PM')).toEqual('12:25:00');
   });
 });
