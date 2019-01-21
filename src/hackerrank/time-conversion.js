@@ -1,17 +1,11 @@
-const timeConversion = standardTime => {
+const timeConversion = (standardTime) => {
   return new StandardTime(standardTime).toMilitaryTime();
 };
 
 class StandardTime {
   constructor(time) {
-    time.replace(
-      /(\d{2}):(\d{2}):(\d{2})([AP]M)/,
-      function(match, hour, minute, second, period) {
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
-        this.period = period;
-      }.bind(this)
+    [, this.hour, this.minute, this.second, this.period] = time.match(
+      /(\d{2}):(\d{2}):(\d{2})([AP]M)/
     );
   }
 
