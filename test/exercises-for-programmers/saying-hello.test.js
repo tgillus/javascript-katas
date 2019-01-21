@@ -16,7 +16,7 @@ describe('Greeter', () => {
   });
 
   it('throws exception when subject of the greeting is an empty string', () => {
-    ['', ' ', '   ', null, undefined].forEach(invalidGreeting => {
+    ['', ' ', '   ', null, undefined].forEach((invalidGreeting) => {
       expect(() => {
         Greeter.greet(invalidGreeting);
       }).toThrowError('Subject of greeting is required and must be a non-empty string.');

@@ -1,7 +1,7 @@
-const buildProjection = fields => {
+const buildProjection = (fields) => {
   const projection = {};
 
-  fields.sort().forEach(field => {
+  fields.sort().forEach((field) => {
     const nestedFields = deconstruct(field);
     let rejectField = false;
 
@@ -24,7 +24,7 @@ const buildProjection = fields => {
 
 const deconstruct = field => field.split('.');
 
-const reconstruct = (nestedFields) => nestedFields.join('.');
+const reconstruct = nestedFields => nestedFields.join('.');
 
 const fieldIsInProjection = (projection, field) => projection[field];
 

@@ -1,4 +1,4 @@
-const firstNonRepeatingLetter = word => {
+const firstNonRepeatingLetter = (word) => {
   const letters = word.split('');
 
   return letters.find(letter => letterDoesNotRepeat(letter, word)) || '';

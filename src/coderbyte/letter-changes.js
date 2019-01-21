@@ -1,10 +1,10 @@
-const letterChanges = str => {
+const letterChanges = (str) => {
   const newStr = str.replace(/[a-z]/g, convertToNextLetterInAlphabet);
 
   return newStr.replace(/a|e|i|o|u/g, convertToUppercase);
 };
 
-const convertToNextLetterInAlphabet = char => {
+const convertToNextLetterInAlphabet = (char) => {
   return char === 'z' ? 'a' : String.fromCharCode(char.charCodeAt(0) + 1);
 };
 

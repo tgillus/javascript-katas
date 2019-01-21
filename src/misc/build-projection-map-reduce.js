@@ -1,8 +1,8 @@
-const buildProjection = fields => {
+const buildProjection = (fields) => {
   return fields.sort().map(projectField).reduce(projectAccumulatedFields, {});
 };
 
-const projectField = field => {
+const projectField = (field) => {
   return { [field]: 1 };
 };
 
@@ -17,7 +17,7 @@ const projectAccumulatedFields = (projection, fieldProjection) => {
   return rejectField ? projection : Object.assign({}, projection, fieldProjection);
 };
 
-const deconstruct = field => {
+const deconstruct = (field) => {
   const nestedFields = field.split('.');
 
   return nestedFields.length === 1 ? [] : nestedFields;

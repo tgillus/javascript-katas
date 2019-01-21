@@ -1,4 +1,4 @@
-const veryBigSum = arr => {
+const veryBigSum = (arr) => {
   return arr.reduce((total, number) => total + number, 0);
 };
 

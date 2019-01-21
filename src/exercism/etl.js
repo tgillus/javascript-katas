@@ -1,8 +1,8 @@
-const transform = oldScores => {
+const transform = (oldScores) => {
   const newScores = {};
 
   Object.entries(oldScores).forEach(([score, letters]) => {
-    letters.forEach(letter => {
+    letters.forEach((letter) => {
       newScores[letter.toLowerCase()] = parseInt(score);
     });
   });

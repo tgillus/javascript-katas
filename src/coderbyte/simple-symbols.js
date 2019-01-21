@@ -1,4 +1,4 @@
-const simpleSymbols = str => {
+const simpleSymbols = (str) => {
   const containsInvalidPattern = str.split('').some(findALetterNotSurroundedByPluses);
 
   return containsInvalidPattern ? false : true;

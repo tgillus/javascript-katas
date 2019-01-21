@@ -15,10 +15,10 @@ class QuotePrinter {
   }
 }
 
-const checkForInvalidArgs = args => {
+const checkForInvalidArgs = (args) => {
   const errors = [];
 
-  Object.keys(args).forEach(property => {
+  Object.keys(args).forEach((property) => {
     if (isInvalidArg(args[property])) {
       errors.push(errorText(property));
     }
@@ -27,7 +27,7 @@ const checkForInvalidArgs = args => {
   return errors;
 };
 
-const isInvalidArg = arg => {
+const isInvalidArg = (arg) => {
   return !arg || typeof arg !== 'string' || !arg.trim();
 };
 

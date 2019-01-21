@@ -1,4 +1,4 @@
-const countOneBits = number => {
+const countOneBits = (number) => {
   if (isPositiveNumber(number)) {
     throw new Error('Argument must be positive number.');
   }

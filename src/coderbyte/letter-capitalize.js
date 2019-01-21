@@ -1,4 +1,4 @@
-const letterCapitalize = str => {
+const letterCapitalize = (str) => {
   const words = str.split(' ');
   const capitalizedWords = words.map(capitalizeFirstLetter);
 

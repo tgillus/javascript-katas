@@ -1,4 +1,4 @@
-const longestWord = sentence => {
+const longestWord = (sentence) => {
   const words = wordsWithoutPunctuation(sentence);
 
   return sortWordsLongestToShortest(words)[0];

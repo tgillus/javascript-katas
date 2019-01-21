@@ -1,4 +1,4 @@
-const arraySum = arr => {
+const arraySum = (arr) => {
   if (arr.length === 1) {
     return arr[0];
   }

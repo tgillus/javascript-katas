@@ -1,4 +1,4 @@
-const reverseString = string => {
+const reverseString = (string) => {
   return string.split('').reverse().join('');
 };
 

@@ -1,4 +1,4 @@
-const diagonalDifference = matrix => {
+const diagonalDifference = (matrix) => {
   let leftToRight = 0;
   let rightToLeft = 0;
 

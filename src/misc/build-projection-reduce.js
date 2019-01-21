@@ -1,4 +1,4 @@
-const buildProjection = fields => {
+const buildProjection = (fields) => {
   return fields.sort().reduce(projection, {});
 };
 
@@ -12,7 +12,7 @@ const projection = (projection, field) => {
   return rejectField ? projection : Object.assign({}, projection, { [field]: 1 });
 };
 
-const decontruct = field => {
+const decontruct = (field) => {
   const nestedFields = field.split('.');
 
   return nestedFields.length === 1 ? [] : nestedFields;

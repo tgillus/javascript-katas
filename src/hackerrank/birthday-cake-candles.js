@@ -1,4 +1,4 @@
-const birthdayCakeCandles = candles => {
+const birthdayCakeCandles = (candles) => {
   let high = candles[0];
   let highCount = 1;
 

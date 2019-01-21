@@ -22,11 +22,11 @@ describe('A leap year', () => {
   });
 
   test('additional leap year tests', () => {
-    [1700, 1800, 1900, 1997, 2100, 2200, 2300, 2500, 2600].forEach(year => {
+    [1700, 1800, 1900, 1997, 2100, 2200, 2300, 2500, 2600].forEach((year) => {
       expect(isLeap(year)).toBeFalsy();
     });
 
-    [1600, 1992, 1996, 2000, 2400].forEach(year => {
+    [1600, 1992, 1996, 2000, 2400].forEach((year) => {
       expect(isLeap(year)).toBeTruthy();
     });
   });

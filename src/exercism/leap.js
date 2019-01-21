@@ -1,4 +1,4 @@
-const isLeap = year => {
+const isLeap = (year) => {
   return (
     isDivisibleBy4(year) &&
     isNotDivisibleBy100(year) ||

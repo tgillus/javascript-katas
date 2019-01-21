@@ -11,7 +11,7 @@ describe('QuotePrinter', () => {
   });
 
   it('throws an exception when quote is invalid', () => {
-    ['', '    ', null, undefined, 50, {}].forEach(invalidQuote => {
+    ['', '    ', null, undefined, 50, {}].forEach((invalidQuote) => {
       expect(() => {
         new QuotePrinter(invalidQuote, 'John Doe');
       }).toThrowError('Valid quote is required.');
@@ -19,7 +19,7 @@ describe('QuotePrinter', () => {
   });
 
   it('throws an exception when author is invalid', () => {
-    ['', '    ', null, undefined, 50, {}].forEach(invalidAuthor => {
+    ['', '    ', null, undefined, 50, {}].forEach((invalidAuthor) => {
       expect(() => {
         new QuotePrinter('To be or not to be . . .', invalidAuthor);
       }).toThrowError('Valid author is required.');
@@ -27,7 +27,7 @@ describe('QuotePrinter', () => {
   });
 
   it('throws an exception when quote and author are invalid', () => {
-    ['', '    ', null, undefined, 50, {}].forEach(invalidArg => {
+    ['', '    ', null, undefined, 50, {}].forEach((invalidArg) => {
       expect(() => {
         new QuotePrinter(invalidArg, invalidArg);
       }).toThrowError('Valid quote is required. Valid author is required.');
