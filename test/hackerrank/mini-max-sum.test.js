@@ -10,7 +10,7 @@
 
 // 6 24
 
-const { miniMaxSum } =  require('../../src/hackerrank/mini-max-sum');
+const { miniMaxSum } = require('../../src/hackerrank/mini-max-sum');
 
 describe('miniMaxSum', () => {
   it("returns '16 24' when given [1, 3, 5, 7, 9]", () => {
