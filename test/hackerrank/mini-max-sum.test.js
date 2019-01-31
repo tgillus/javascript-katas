@@ -14,14 +14,14 @@ const { miniMaxSum } = require('../../src/hackerrank/mini-max-sum');
 
 describe('miniMaxSum', () => {
   it("returns '16 24' when given [1, 3, 5, 7, 9]", () => {
-    expect(miniMaxSum([1, 3, 5, 7, 9])).toBe('16 24');
+    expect(miniMaxSum([1, 3, 5, 7, 9])).toEqual('16 24');
   });
 
   it("returns '10 14' when given [1, 2, 3, 4, 5]", () => {
-    expect(miniMaxSum([1, 2, 3, 4, 5])).toBe('10 14');
+    expect(miniMaxSum([1, 2, 3, 4, 5])).toEqual('10 14');
   });
 
   it("returns '16 24' when given [1, 9, 7, 5, 3]", () => {
-    expect(miniMaxSum([1, 9, 7, 5, 3])).toBe('16 24');
+    expect(miniMaxSum([1, 9, 7, 5, 3])).toEqual('16 24');
   });
 });
