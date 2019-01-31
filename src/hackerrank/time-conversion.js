@@ -1,5 +1,5 @@
 const timeConversion = (time) => {
-  return StandardToMilitary.for(new StandardTime(time)).militaryTime;
+  return StandardToMilitary.for(new StandardTime(time)).time;
 };
 
 class StandardTime {
@@ -10,11 +10,11 @@ class StandardTime {
   }
 
   isMidnightHour() {
-    return this.hour === '12' && this.period === 'AM';
+    return this.hour === '12' && this.isMorning();
   }
 
   isNoonHour() {
-    return this.hour === '12' && this.period === 'PM';
+    return this.hour === '12' && this.isAfternoon();
   }
 
   isMorning() {
@@ -33,11 +33,7 @@ class StandardToMilitary {
     this.second = standardTime.second;
   }
 
-  get hour() {
-    throw new Error('Cannot call abstract method');
-  }
-
-  get militaryTime() {
+  get time() {
     return `${this.hour}:${this.minute}:${this.second}`;
   }
 
