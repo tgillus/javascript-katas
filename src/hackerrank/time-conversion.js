@@ -1,5 +1,5 @@
-const timeConversion = (standardTime) => {
-  return new StandardTime(standardTime).toMilitaryTime();
+const timeConversion = (time) => {
+  return StandardToMilitary.for(new StandardTime(time)).militaryTime;
 };
 
 class StandardTime {
@@ -9,50 +9,66 @@ class StandardTime {
     );
   }
 
-  toMilitaryTime() {
-    const standardHour = new StandardHour(
-      this.hour,
-      new StandardPeriod(this.period)
-    );
-    const militaryHour = standardHour.toMilitaryHour();
-
-    return `${militaryHour}:${this.minute}:${this.second}`;
-  }
-}
-
-class StandardPeriod {
-  constructor(period) {
-    this.period = period;
+  isMidnightHour() {
+    return this.hour === '12' && this.period === 'AM';
   }
 
-  isAm() {
+  isNoonHour() {
+    return this.hour === '12' && this.period === 'PM';
+  }
+
+  isMorning() {
     return this.period === 'AM';
   }
 
-  isPm() {
+  isAfternoon() {
     return this.period === 'PM';
   }
 }
 
-class StandardHour {
-  constructor(hour, standardPeriod) {
-    this.hour = hour;
-    this.standardPeriod = standardPeriod;
+class StandardToMilitary {
+  constructor(standardTime) {
+    this.standardTime = standardTime;
+    this.minute = standardTime.minute;
+    this.second = standardTime.second;
   }
 
-  isMidnightHour() {
-    return this.hour === '12' && this.standardPeriod.isAm();
+  get hour() {
+    throw new Error('Cannot call abstract method');
   }
 
-  isNoonHour() {
-    return this.hour === '12' && this.standardPeriod.isPm();
+  get militaryTime() {
+    return `${this.hour}:${this.minute}:${this.second}`;
   }
 
-  toMilitaryHour() {
-    if (this.isMidnightHour()) return '00';
-    if (this.standardPeriod.isAm() || this.isNoonHour()) return this.hour;
+  static for(standardTime) {
+    if (standardTime.isMidnightHour()) {
+      return new StandardMidnightToMilitary(standardTime);
+    }
 
-    return `${+this.hour + 12}`;
+    if (standardTime.isNoonHour() || standardTime.isMorning()) {
+      return new StandardNoonOrMorningToMilitary(standardTime);
+    }
+
+    return new StandardAfternoonToMilitary(standardTime);
+  }
+}
+
+class StandardMidnightToMilitary extends StandardToMilitary {
+  get hour() {
+    return '00';
+  }
+}
+
+class StandardNoonOrMorningToMilitary extends StandardToMilitary {
+  get hour() {
+    return this.standardTime.hour;
+  }
+}
+
+class StandardAfternoonToMilitary extends StandardToMilitary {
+  get hour() {
+    return `${+this.standardTime.hour + 12}`;
   }
 }
 
