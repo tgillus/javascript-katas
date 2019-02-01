@@ -1,4 +1,8 @@
 const plusMinus = (arr) => {
+  return fractions(countPositivesNegativesAndZeros(arr), arr.length);
+};
+
+const countPositivesNegativesAndZeros = (arr) => {
   let positives = 0;
   let negatives = 0;
   let zeros = 0;
@@ -9,11 +13,15 @@ const plusMinus = (arr) => {
     if (number === 0) zeros++;
   });
 
-  const positivesFraction = (positives / arr.length).toFixed(6);
-  const negativesFraction = (negatives / arr.length).toFixed(6);
-  const zerosFraction = (zeros / arr.length).toFixed(6);
+  return [positives, negatives, zeros];
+};
 
-  return `${positivesFraction}\n${negativesFraction}\n${zerosFraction}`;
+const fractions = (dividends, total) => {
+  return dividends.map(dividend => quotient(dividend, total)).join('\n');
+};
+
+const quotient = (dividend, divisor) => {
+  return (dividend / divisor).toFixed(6);
 };
 
 module.exports = { plusMinus };
