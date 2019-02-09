@@ -15,7 +15,7 @@ class RoomArea {
   }
 }
 
-const roundDecimalPlaces = ({ number, places = 2 } ) => {
+const roundDecimalPlaces = ({ number, places } ) => {
   const roundedNumber = (number).toFixed(places);
 
   return parseFloat(roundedNumber);
