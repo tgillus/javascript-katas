@@ -10,15 +10,26 @@ class RoomArea {
 
   get squareMeters() {
     const squareMeters = this.squareFeet * 0.09290304;
+    const roundedSquareMeters = new FlexibleDecimal({
+      number: squareMeters,
+      placesAfterDecimal: 3
+    });
 
-    return roundDecimalPlaces({ number: squareMeters, places: 3 });
+    return +roundedSquareMeters;
   }
 }
 
-const roundDecimalPlaces = ({ number, places } ) => {
-  const roundedNumber = (number).toFixed(places);
+class FlexibleDecimal {
+  constructor({ number, placesAfterDecimal }) {
+    this.number = number;
+    this.placesAfterDecimal = placesAfterDecimal;
+  }
 
-  return parseFloat(roundedNumber);
-};
+  valueOf() {
+    const roundedNumber = this.number.toFixed(this.placesAfterDecimal);
+
+    return +roundedNumber;
+  }
+}
 
 module.exports = { RoomArea };
