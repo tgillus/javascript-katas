@@ -3,28 +3,20 @@ const decode = (romanNumeral) => {
   let index = 0;
 
   while (index < romanNumeral.length) {
-    const [current, next] = getPairAsDecimalValue(romanNumeral, index);
+    const [current, next] = convertRomanPairToDecimalPair(romanNumeral, index);
 
-    total += incrementTotalBy(current, next);
+    total += decimalValue(current, next);
     index += incrementIndexBy(current, next);
   }
 
   return total;
 };
 
-const getPairAsDecimalValue = (romanNumeral, index) => {
-  return [0, 1].map(number => decimalValue(romanNumeral[index + number]));
+const convertRomanPairToDecimalPair = (romanNumeral, index) => {
+  return [0, 1].map(number => romanToDecimal(romanNumeral[index + number]));
 };
 
-const incrementTotalBy = (current, next) => {
-  return current < next ? next - current : current;
-};
-
-const incrementIndexBy = (current, next) => {
-  return current < next ? 2 : 1;
-};
-
-const decimalValue = (romanNumeral) => {
+const romanToDecimal = (romanNumeral) => {
   switch (romanNumeral) {
   case 'I':
     return 1;
@@ -43,6 +35,14 @@ const decimalValue = (romanNumeral) => {
   default:
     return 0;
   }
+};
+
+const decimalValue = (current, next) => {
+  return current < next ? next - current : current;
+};
+
+const incrementIndexBy = (current, next) => {
+  return current < next ? 2 : 1;
 };
 
 module.exports = { decode };
