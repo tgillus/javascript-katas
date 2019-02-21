@@ -1,33 +1,35 @@
 const decode = (romanNumeral) => {
-  let total = 0;
-  let index = 0;
+  const romanDigits = romanNumeral.match(/IV|IX|XL|XC|CD|CM|I|V|X|L|C|D|M/g);
 
-  while (index < romanNumeral.length) {
-    const [current, next] = convertRomanPairToDecimalPair(romanNumeral, index);
-
-    total += decimalValue(current, next);
-    index += incrementIndexBy(current, next);
-  }
-
-  return total;
+  return romanDigits.reduce(addRomanDigits, 0);
 };
 
-const convertRomanPairToDecimalPair = (romanNumeral, index) => {
-  return [0, 1].map(number => romanToDecimal(romanNumeral[index + number]));
-};
+const addRomanDigits = (sum, romanDigit) => sum + romanToDecimal(romanDigit);
 
 const romanToDecimal = (romanNumeral) => {
   switch (romanNumeral) {
   case 'I':
     return 1;
+  case 'IV':
+    return 4;
   case 'V':
     return 5;
+  case 'IX':
+    return 9;
   case 'X':
     return 10;
+  case 'XL':
+    return 40;
   case 'L':
     return 50;
+  case 'XC':
+    return 90;
   case 'C':
     return 100;
+  case 'CD':
+    return 400;
+  case 'CM':
+    return 900;
   case 'D':
     return 500;
   case 'M':
@@ -35,14 +37,6 @@ const romanToDecimal = (romanNumeral) => {
   default:
     return 0;
   }
-};
-
-const decimalValue = (current, next) => {
-  return current < next ? next - current : current;
-};
-
-const incrementIndexBy = (current, next) => {
-  return current < next ? 2 : 1;
 };
 
 module.exports = { decode };
