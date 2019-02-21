@@ -17,19 +17,11 @@ const getPairAsDecimalValue = (romanNumeral, index) => {
 };
 
 const incrementTotalBy = (current, next) => {
-  if (current < next) {
-    return next - current;
-  }
-
-  return current;
+  return current < next ? next - current : current;
 };
 
 const incrementIndexBy = (current, next) => {
-  if (current < next) {
-    return 2;
-  }
-
-  return 1;
+  return current < next ? 2 : 1;
 };
 
 const decimalValue = (romanNumeral) => {
