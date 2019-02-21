@@ -1,17 +1,19 @@
 const decode = (romanNumeral) => {
-  const romanNumeralDigits = romanNumeral.split('');
   let total = 0;
-  let i = 0;
+  let index = 0;
 
-  while (i < romanNumeralDigits.length) {
-    const current = convertToDecimal(romanNumeralDigits[i]);
-    const next = convertToDecimal(romanNumeralDigits[i + 1]);
+  while (index < romanNumeral.length) {
+    const [current, next] = getPairAsDecimalValue(romanNumeral, index);
 
     total += incrementTotalBy(current, next);
-    i += incrementIndexBy(current, next);
+    index += incrementIndexBy(current, next);
   }
 
   return total;
+};
+
+const getPairAsDecimalValue = (romanNumeral, index) => {
+  return [0, 1].map(number => decimalValue(romanNumeral[index + number]));
 };
 
 const incrementTotalBy = (current, next) => {
@@ -30,7 +32,7 @@ const incrementIndexBy = (current, next) => {
   return 1;
 };
 
-const convertToDecimal = (romanNumeral) => {
+const decimalValue = (romanNumeral) => {
   switch (romanNumeral) {
   case 'I':
     return 1;
