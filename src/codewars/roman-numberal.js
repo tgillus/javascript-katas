@@ -7,20 +7,27 @@ const decode = (romanNumeral) => {
     const current = convertToDecimal(romanNumeralDigits[i]);
     const next = convertToDecimal(romanNumeralDigits[i + 1]);
 
-    if (currentGreaterThanOrEqualToNext(current, next)) {
-      total += current;
-      i += 1;
-    } else {
-      total += next - current;
-      i += 2;
-    }
+    total += incrementTotalBy(current, next);
+    i += incrementIndexBy(current, next);
   }
 
   return total;
 };
 
-const currentGreaterThanOrEqualToNext = (current, next = 0) => {
-  return current >= next;
+const incrementTotalBy = (current, next) => {
+  if (current < next) {
+    return next - current;
+  }
+
+  return current;
+};
+
+const incrementIndexBy = (current, next) => {
+  if (current < next) {
+    return 2;
+  }
+
+  return 1;
 };
 
 const convertToDecimal = (romanNumeral) => {
@@ -40,7 +47,7 @@ const convertToDecimal = (romanNumeral) => {
   case 'M':
     return 1000;
   default:
-    return undefined;
+    return 0;
   }
 };
 
