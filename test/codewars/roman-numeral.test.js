@@ -10,7 +10,7 @@
 // and 2008 is rendered "MMVIII" (2000 = MM, 8 = VIII). The Roman numeral for
 // 1666, "MDCLXVI", uses each letter in descending order.
 
-const { decode } = require('../../src/codewars/roman-numberal');
+const { decode } = require('../../src/codewars/roman-numeral');
 
 describe('RomanNumberDecoder', () => {
   it("returns '1' for roman numberal 'I'", () => {
