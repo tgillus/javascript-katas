@@ -13,55 +13,67 @@
 const { decode } = require('../../src/codewars/roman-numeral');
 
 describe('RomanNumberDecoder', () => {
-  it("returns '1' for roman numberal 'I'", () => {
+  it('returns 1 for roman numberal I', () => {
     expect(decode('I')).toBe(1);
   });
 
-  it("returns '5' for roman numeral 'V'", () => {
+  it('returns 5 for roman numeral V', () => {
     expect(decode('V')).toBe(5);
   });
 
-  it("returns '10' for roman numeral 'X'", () => {
+  it('returns 10 for roman numeral X', () => {
     expect(decode('X')).toBe(10);
   });
 
-  it("returns '50' for roman numeral 'L'", () => {
+  it('returns 50 for roman numeral L', () => {
     expect(decode('L')).toBe(50);
   });
 
-  it("returns '100' for roman numeral 'C'", () => {
+  it('returns 100 for roman numeral C', () => {
     expect(decode('C')).toBe(100);
   });
 
-  it("returns '500' for roman numeral 'D'", () => {
+  it('returns 500 for roman numeral D', () => {
     expect(decode('D')).toBe(500);
   });
 
-  it("returns '1000' for roman numeral 'M'", () => {
+  it('returns 1000 for roman numeral M', () => {
     expect(decode('M')).toBe(1000);
   });
 
-  it("returns '2' for roman numeral 'II'", () => {
+  it('returns 2 for roman numeral II', () => {
     expect(decode('II')).toBe(2);
   });
 
-  it("returns '21' for roman numeral 'XXI'", () => {
+  it('returns 21 for roman numeral XXI', () => {
     expect(decode('XXI')).toBe(21);
   });
 
-  it("returns '4' for roman numeral 'IV'", () => {
+  it('returns 4 for roman numeral IV', () => {
     expect(decode('IV')).toBe(4);
   });
 
-  it("returns '1990' for roman numeral 'MCMXC'", () => {
+  it('returns 1990 for roman numeral MCMXC', () => {
     expect(decode('MCMXC')).toBe(1990);
   });
 
-  it("returns '2008' for roman numeral 'MMVIII'", () => {
+  it('returns 2008 for roman numeral MMVIII', () => {
     expect(decode('MMVIII')).toBe(2008);
   });
 
-  it("returns '1666' for roman numeral 'MDCLXVI'", () => {
+  it('returns 1666 for roman numeral MDCLXVI', () => {
     expect(decode('MDCLXVI')).toBe(1666);
+  });
+
+  it('returns 39 for roman numeral XXXIX', () => {
+    expect(decode('XXXIX')).toBe(39);
+  });
+
+  it('returns 48 for roman numeral XLVIII', () => {
+    expect(decode('XLVIII')).toBe(48);
+  });
+
+  it('returns 419 for roman numeral CDXIX', () => {
+    expect(decode('CDXIX')).toBe(419);
   });
 });
